@@ -30,10 +30,10 @@
       <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="jp@gc - Stepping Thread Group" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <stringProp name="ThreadGroup.num_threads">2</stringProp>
-        <stringProp name="Threads initial delay">0</stringProp>
+        <stringProp name="Threads initial delay">30</stringProp>
         <stringProp name="Start users count">1</stringProp>
         <stringProp name="Start users count burst">1</stringProp>
-        <stringProp name="Start users period">120</stringProp>
+        <stringProp name="Start users period">30</stringProp>
         <stringProp name="Stop users count">1</stringProp>
         <stringProp name="Stop users period">1</stringProp>
         <stringProp name="flighttime">60</stringProp>
@@ -44,90 +44,22 @@
         </elementProp>
       </kg.apc.jmeter.threads.SteppingThreadGroup>
       <hashTree>
-        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
-          <collectionProp name="CookieManager.cookies">
-            <elementProp name="ObSSOCookie" elementType="Cookie" testname="ObSSOCookie">
-              <stringProp name="Cookie.value">ta3y811L1F4nBpIP9aVwuuu0yX/aYIjLwcl25d/s/co5bqhAxiPqUEhFg9vorp6YC1dZeNRCJf9s9toZW3WK8onIy5Z7E9Ri35+J4GRJJ1fcKtxi9fpM4C6YRjgAqTSnS6E07HigHlgsAwBuq0OEdeGIFr6m5C0Js4m0b0X5tqRskHX/pVGH8zqSfnMx6nzIoX0ZymvYGCSyHkssikH9VMeCbesL91374hROkG913gtJcCGQVij6FQfBz3Gh2eIj9kk8OfrWZaOqJVmN8YHzNROq2BUp1vS5zDLxPL1KN20z9BQwllXPUjTWwDFulLlj</stringProp>
-              <stringProp name="Cookie.domain">.netapp.com</stringProp>
-              <stringProp name="Cookie.path">/</stringProp>
-              <boolProp name="Cookie.secure">false</boolProp>
-              <longProp name="Cookie.expires">0</longProp>
-              <boolProp name="Cookie.path_specified">true</boolProp>
-              <boolProp name="Cookie.domain_specified">true</boolProp>
-            </elementProp>
-          </collectionProp>
-          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
-        </CookieManager>
-        <hashTree/>
         <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Recording Controller" enabled="true"/>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NaviStar-CreateUserFBUser" enabled="false">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-&quot;emailAddress&quot;:&quot;joseph_wyfipdj_joseph@tfbnw.net&quot;,&#xd;
-&quot;password&quot;:&quot;&quot;,&#xd;
-&quot;firstName&quot;:&quot;Joseph&quot;,&#xd;
-&quot;lastName&quot;:&quot;Davis&quot;,&#xd;
-&quot;fbToken&quot;:&quot;EAACEdEose0cBAAVbsICN4zMWzXneffTkwdhvV1xjuhabXFmbZCO2pkZCTBlFhzG4LRZBKLps5ZB6t9Os2Yat170IFHqRWPzJdLQdOaB6Cz8CHnfTFgsS8VxmfqiUVVCVFvZBjwut0y0Feo7bxUiZCplhP3CZAk17mhWgF5tsUhGRlYPSKfWdHb6&quot;&#xd;
-}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">edlservice.azurewebsites.net</stringProp>
-            <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="HTTPSampler.protocol">https</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
-            <stringProp name="HTTPSampler.path">/users/Named/createUser</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          </HTTPSamplerProxy>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6InQ4elBBYm9Ga0NKOWItbkZKenp5SWlrSmdTSkFrQTJwMDh5a3dSWV8xQW8ifQ.eyJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOWFkYzRmODktODIwYi00NzZhLWJhYjYtN2NmMWQ5YjU0ZmQ0L3YyLjAvIiwiZXhwIjoxNDkwOTY2MzY1LCJuYmYiOjE0OTA5NjI3NjUsImF1ZCI6IjY5OGVmMDNmLWY1ZTUtNGQ1Ni04YzA4LTRjOTE5MGUyMzc2MyIsImdpdmVuX25hbWUiOiJSYWtlc2giLCJmYW1pbHlfbmFtZSI6IlJhdmkiLCJpZHAiOiJnb29nbGUuY29tIiwic3ViIjoiTm90IHN1cHBvcnRlZCBjdXJyZW50bHkuIFVzZSBvaWQgY2xhaW0uIiwib2lkIjoiODc5NWU3NzAtZmVmZS00MmZlLTg5NTYtYTljZmYwMzNhNzY2IiwiZW1haWxzIjpbInJha2VzaHJhdmkzMDNAZ21haWwuY29tIl0sImF6cCI6IjY5OGVmMDNmLWY1ZTUtNGQ1Ni04YzA4LTRjOTE5MGUyMzc2MyIsInZlciI6IjEuMCJ9.l497WHpPmcKoxu4VkcIyi0hm_LHaY7FXdq-30NCVsGFdmbJszL12XaLzJRgJKMsUXprNOZ86UqNNKa-NdxUk5dqOR1xMuGs7B5413sqYldmju_gjWEZH_K__gYJHBA2UGg-x1AnleWb_Fs00ddaHOtmvGfhtSMgb2wkWnVukwowY6cYYQQpm5yPrq2WOlDMW_6AlLwDaNACd-icpFFcCSEKH-qz5QooXRVBnPz-aDbmQS4j5__M7-olCHb95bC04rBbnk7e4vCg0Vz3XOuWAHlG68GTchx2Jp39vgi9IVz6gQcF-9rc_4SkRJ_0aIgZ2KJCIxQj7N2xGW1a4bc00Rg</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NaviStar-CreateUserNon-FBUser" enabled="false">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-&quot;emailAddress&quot;:&quot;xyz@gmail.com&quot;,&#xd;
-&quot;password&quot;:&quot;1234&quot;,&#xd;
-&quot;firstName&quot;:&quot;Ajay&quot;,&#xd;
-&quot;lastName&quot;:&quot;David&quot;,&#xd;
-&quot;fbToken&quot;:&quot;&quot;&#xd;
-}</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">edlservice.azurewebsites.net</stringProp>
-            <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="HTTPSampler.protocol">https</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
-            <stringProp name="HTTPSampler.path">/users/Named/createUser</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NaviStar-GetHOSRule" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EDL-CreateUser" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -138,52 +70,158 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">https://edlapidev.navistar.com</stringProp>
+            <stringProp name="HTTPSampler.domain">edl.navistar.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
-            <stringProp name="HTTPSampler.path">/HOSRule/Named/GetHOSRules</stringProp>
+            <stringProp name="HTTPSampler.path">/WebApi/users/Named/createUser</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EDL-SaveUserInfo" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">edl.navistar.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
+            <stringProp name="HTTPSampler.path">/WebApi/users/Named/SaveUserInfo</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EDL-GetIFTATaxRate" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">edl.navistar.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
+            <stringProp name="HTTPSampler.path">/WebApi/IFTA/Named/GetIFTATaxRate</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
             <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">auth-token</stringProp>
-                  <stringProp name="Header.value">9uI73sf9xc</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">auth-email</stringProp>
-                  <stringProp name="Header.value">joe_cuczcso_arthur@tfbnw.net</stringProp>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EDL-GetUTCDateTime" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">edl.navistar.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
+            <stringProp name="HTTPSampler.path">/WebApi/Common/Named/GetUTCDateTime</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EDL-GetIFTAInfo" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">edl.navistar.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
+            <stringProp name="HTTPSampler.path">/WebApi/IFTA/Named/GetIFTAInfo?year=2016&amp;quarter=3</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EDL-GetHOSRule" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
-            </HeaderManager>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NaviStar-SaveInspection" enabled="true">
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">edl.navistar.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
+            <stringProp name="HTTPSampler.path">/WebApi/HOSRule/Named/GetHOSRules</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EDL-SaveInspection" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.value">{&#xd;
-  &quot;vehicleId&quot;: 44,&#xd;
+  &quot;vehicleId&quot;: 6,&#xd;
   &quot;inspectionTypeId&quot;: 1,&#xd;
   &quot;signature&quot;: &quot;signature1&quot;,&#xd;
-  &quot;dateTimeStamp&quot;: 1478602980,&#xd;
-  &quot;trailerNumber&quot;: &quot;trail1&quot;,&#xd;
-   &quot;CarrierID&quot;: 79,&#xd;
-  &quot;LocationName&quot;:&quot;location1&quot;,&#xd;
-  &quot;Odometer&quot;:145,&#xd;
+  &quot;dateTimeStamp&quot;: 1466763720,&#xd;
+  &quot;trailerNumber&quot;: &quot;T_001&quot;,&#xd;
+   &quot;CarrierID&quot;: 8,&#xd;
+  &quot;LocationName&quot;:&quot;NY&quot;,&#xd;
+  &quot;Odometer&quot;:12,&#xd;
   &quot;inspectedItems&quot;: [&#xd;
     {&#xd;
       &quot;inspectionItemId&quot;: 1,&#xd;
@@ -192,10 +230,11 @@
         {&#xd;
           &quot;photo&quot;: {&#xd;
             &quot;photoString&quot;: &quot;photoString1&quot;,&#xd;
-            &quot;dateTimeStamp&quot;: 1478602980,&#xd;
+            &quot;dateTimeStamp&quot;: 1466663720,&#xd;
             &quot;note&quot;: {&#xd;
               &quot;description&quot;: &quot;noteDescription1&quot;,&#xd;
-              &quot;dateTimeStamp&quot;: 1478602980&#xd;
+              &quot;dateTimeStamp&quot;: 1466763720,&#xd;
+              &quot;DeviceUniqueId&quot;:334477444321&#xd;
             }&#xd;
           }&#xd;
         }&#xd;
@@ -208,94 +247,80 @@
         {&#xd;
           &quot;photo&quot;: {&#xd;
             &quot;photoString&quot;: &quot;photoString2&quot;,&#xd;
-            &quot;dateTimeStamp&quot;: 1478689380,&#xd;
+            &quot;dateTimeStamp&quot;: 1466663720,&#xd;
             &quot;note&quot;: {&#xd;
               &quot;description&quot;: &quot;noteDescription2&quot;,&#xd;
-              &quot;dateTimeStamp&quot;: 1478689380&#xd;
+              &quot;dateTimeStamp&quot;: 1466763720,&#xd;
+              &quot;DeviceUniqueId&quot;:33447744123&#xd;
             }&#xd;
           }&#xd;
         }&#xd;
       ]&#xd;
     }&#xd;
   ]&#xd;
-}&#xd;
-</stringProp>
+}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">https://edlapidev.navistar.com</stringProp>
+            <stringProp name="HTTPSampler.domain">edl.navistar.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
-            <stringProp name="HTTPSampler.path">/inspections/Named/SaveInspection</stringProp>
+            <stringProp name="HTTPSampler.path">/WebApi/inspections/Named/SaveInspection</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
             <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">auth-token</stringProp>
-                  <stringProp name="Header.value">MsLovcwOnC</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">auth-email</stringProp>
-                  <stringProp name="Header.value">susan_erklgvx_thomas@tfbnw.net</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Content-Type</stringProp>
-                  <stringProp name="Header.value">application/json</stringProp>
-                </elementProp>
-              </collectionProp>
-            </HeaderManager>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NaviStar-SaveDailyLog" enabled="true">
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EDL-SaveDailyLog" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.value">{&#xd;
-  &quot;VehicleID&quot;: 292,&#xd;
-  &quot;CarrierID&quot;: 1,&#xd;
-  &quot;CoDriverName&quot;: &quot;CoDriver1&quot;,&#xd;
-  &quot;TrailerNumber&quot;: &quot;Trailer_001&quot;,&#xd;
-  &quot;Signature&quot;: &quot;Driver1&quot;,&#xd;
+  &quot;VehicleID&quot;: 2,&#xd;
+  &quot;CarrierID&quot;: 2,&#xd;
+  &quot;CoDriverName&quot;: &quot;Achandy&quot;,&#xd;
+  &quot;TrailerNumber&quot;: &quot;cycle&quot;,&#xd;
+  &quot;Signature&quot;: &quot;Apa&quot;,&#xd;
+   &quot;DeviceUniqueId&quot;:334477444443,&#xd;
   &quot;DutyStatusList&quot;: [&#xd;
     {&#xd;
       &quot;StatusTypeID&quot;: 3,&#xd;
-      &quot;StartDateTimeStamp&quot;: &quot;1470830737&quot;,&#xd;
-      &quot;EndDateTimeStamp&quot;: &quot;1470917137&quot;,&#xd;
-      &quot;LocationName&quot;: &quot;Location1&quot;,&#xd;
-      &quot;Latitude&quot;: &quot;Latitude1&quot;,&#xd;
-      &quot;Longitude&quot;: &quot;Longitude1&quot;,&#xd;
-      &quot;TimeZone&quot;: &quot;TimeZone1&quot;,&#xd;
-      &quot;Odometer&quot;: 1,&#xd;
+      &quot;StartDateTimeStamp&quot;: &quot;1477606332&quot;,&#xd;
+      &quot;EndDateTimeStamp&quot;: &quot;1477606332&quot;,&#xd;
+      &quot;LocationName&quot;: &quot;Thirumudikkunnu&quot;,&#xd;
+      &quot;Latitude&quot;: &quot;High&quot;,&#xd;
+      &quot;Longitude&quot;: &quot;15km&quot;,&#xd;
+      &quot;TimeZone&quot;: &quot;11am&quot;,&#xd;
+      &quot;Odometer&quot;: 1.00,&#xd;
       &quot;UnitsOfMeasurements&quot;: 1,&#xd;
       &quot;ManuallyEdited&quot;: &quot;True&quot;,&#xd;
+      &quot;DeviceUniqueId&quot;:3331777111111,&#xd;
+  &quot;FrequentlyUsedRemarks&quot;:null,&#xd;
       &quot;DutyStatusNotesList&quot;: [&#xd;
         {&#xd;
           &quot;NoteTypeId&quot;: 1,&#xd;
           &quot;Note&quot;: {&#xd;
-            &quot;Description&quot;: &quot;Note1&quot;,&#xd;
-            &quot;DateTimeStamp&quot;: &quot;1470830737&quot;&#xd;
+            &quot;Description&quot;: &quot;Prasangam1&quot;,&#xd;
+            &quot;DateTimeStamp&quot;: &quot;1477606332&quot;,&#xd;
+            &quot;DeviceUniqueId&quot;:3331777111111&#xd;
           }&#xd;
         },&#xd;
         {&#xd;
           &quot;NoteTypeId&quot;: 2,&#xd;
           &quot;Note&quot;: {&#xd;
-            &quot;Description&quot;: &quot;Note2&quot;,&#xd;
-            &quot;DateTimeStamp&quot;: &quot;1470830737&quot;&#xd;
+            &quot;Description&quot;: &quot;Prasangam2&quot;,&#xd;
+            &quot;DateTimeStamp&quot;: &quot;1477606332&quot;,&#xd;
+            &quot;DeviceUniqueId&quot;:444477711111&#xd;
           }&#xd;
         }&#xd;
       ],&#xd;
@@ -303,16 +328,26 @@
         {&#xd;
           &quot;Violation&quot;: {&#xd;
             &quot;ViolationTypeID&quot;: 2,&#xd;
-            &quot;DateTimeStamp&quot;: &quot;1470830737&quot;&#xd;
+            &quot;DateTimeStamp&quot;: &quot;1477606332&quot;,&#xd;
+            &quot;HosRuleId&quot;: 2&#xd;
           }&#xd;
         },&#xd;
-        {&#xd;
+       {&#xd;
           &quot;Violation&quot;: {&#xd;
             &quot;ViolationTypeID&quot;: 1,&#xd;
-            &quot;DateTimeStamp&quot;: &quot;1470830737&quot;&#xd;
+            &quot;DateTimeStamp&quot;: &quot;1478865228&quot;,&#xd;
+            &quot;HosRuleId&quot;: 2&#xd;
           }&#xd;
         }&#xd;
       ]&#xd;
+    }&#xd;
+],&#xd;
+  &quot;LogRuleList&quot;: [&#xd;
+    {&#xd;
+      &quot;VehicleTypeId&quot;: 1,&#xd;
+      &quot;HosRuleId&quot;: 2,&#xd;
+      &quot;ExceptionIds&quot;: &quot;7,8,6&quot;,&#xd;
+   &quot;DeviceUniqueId&quot;:3224477744444&#xd;
     }&#xd;
   ]&#xd;
 }&#xd;
@@ -321,42 +356,23 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">https://edlapidev.navistar.com</stringProp>
+            <stringProp name="HTTPSampler.domain">edl.navistar.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
-            <stringProp name="HTTPSampler.path">/DailyLog/Named/SaveDailyLog</stringProp>
+            <stringProp name="HTTPSampler.path">/WebApi/DailyLog/Named/SaveDailyLog</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
             <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">auth-token</stringProp>
-                  <stringProp name="Header.value">21eJ2yCAIW</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">auth-email</stringProp>
-                  <stringProp name="Header.value">bob_pxqlqzi_tyler@tfbnw.net</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Content-Type</stringProp>
-                  <stringProp name="Header.value">application/json</stringProp>
-                </elementProp>
-              </collectionProp>
-            </HeaderManager>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NaviStar-DeleteCarrier" enabled="true">
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EDL-DeleteCarrier" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -367,88 +383,123 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">https://edlapidev.navistar.com</stringProp>
+            <stringProp name="HTTPSampler.domain">edl.navistar.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
-            <stringProp name="HTTPSampler.path">/UserCarrier/Named/DeleteCarrier?id=18</stringProp>
+            <stringProp name="HTTPSampler.path">/WebApi/UserCarrier/Named/DeleteCarrier?id=1</stringProp>
             <stringProp name="HTTPSampler.method">DELETE</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
             <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">auth-token</stringProp>
-                  <stringProp name="Header.value">MsLovcwOnC</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">auth-email</stringProp>
-                  <stringProp name="Header.value">susan_erklgvx_thomas@tfbnw.net</stringProp>
-                </elementProp>
-              </collectionProp>
-            </HeaderManager>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NaviStar-SaveCarrier" enabled="true">
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EDL-SaveIFTAInfo" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.value">{&#xd;
-&quot;Name&quot;:&quot;carrier1&quot;,&#xd;
-&quot;Address&quot;:&quot;street1&quot;,&#xd;
-&quot;City&quot;:&quot;city1&quot;,&#xd;
-&quot;State&quot;:&quot;state1&quot;,&#xd;
-&quot;Zip&quot;:&quot;695583&quot;, &#xd;
-&quot;PhoneNo&quot;:&quot;+114467899000&quot;,&#xd;
-&quot;EmailAddress&quot;:&quot;carrier1@gmail.com&quot;&#xd;
+&quot;IFTAList&quot;: [&#xd;
+ {&#xd;
+&quot;currencyId&quot;:1,&#xd;
+&quot;stateId&quot;:1,&#xd;
+&quot;fuelTypeId&quot;:1,&#xd;
+&quot;year&quot;:2016,&#xd;
+&quot;quarter&quot;:3,&#xd;
+&quot;TotalDistance&quot;:500.1234,&#xd;
+&quot;TotalTaxableDistance&quot;:400.1234,&#xd;
+&quot;TotalUnitPurchased&quot;:400.1234,&#xd;
+&quot;TotalTaxableUnit&quot;:400.1234,&#xd;
+&quot;NetTaxableUnit&quot;:123.123,&#xd;
+&quot;AverageDistancePerUnit&quot;:123.12,&#xd;
+&quot;SurchargeRateId&quot;:1,&#xd;
+&quot;Surcharge&quot;:12.230,&#xd;
+&quot;IFTATaxRateId&quot;:1,&#xd;
+&quot;IFTATax&quot;:12.1234&#xd;
+ },&#xd;
+ {&#xd;
+&quot;currencyId&quot;:1,&#xd;
+&quot;stateId&quot;:1,&#xd;
+&quot;fuelTypeId&quot;:1,&#xd;
+&quot;year&quot;:2016,&#xd;
+&quot;quarter&quot;:3,&#xd;
+&quot;TotalDistance&quot;:5.12,&#xd;
+&quot;TotalTaxableDistance&quot;:4.12,&#xd;
+&quot;TotalUnitPurchased&quot;:4.12,&#xd;
+&quot;TotalTaxableUnit&quot;:4.12,&#xd;
+&quot;NetTaxableUnit&quot;:1.1,&#xd;
+&quot;AverageDistancePerUnit&quot;:1.12,&#xd;
+&quot;SurchargeRateId&quot;:null,&#xd;
+&quot;Surcharge&quot;:null,&#xd;
+&quot;IFTATaxRateId&quot;:2,&#xd;
+&quot;IFTATax&quot;:12.12&#xd;
+ }&#xd;
+]&#xd;
 }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">https://edlapidev.navistar.com</stringProp>
+            <stringProp name="HTTPSampler.domain">edl.navistar.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
-            <stringProp name="HTTPSampler.path">/UserCarrier/Named/SaveCarrier</stringProp>
+            <stringProp name="HTTPSampler.path">/WebApi/IFTA/Named/SaveIFTAInfo</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
             <boolProp name="HTTPSampler.monitor">false</boolProp>
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Content-Type</stringProp>
-                  <stringProp name="Header.value">application/json</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Authorization</stringProp>
-                  <stringProp name="Header.value">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlBmdHBsdlVNemRQWjhRZ3dXODJTczlRYmd4cTVDZ0hiS1lJSDNkTGtmc0kifQ.eyJleHAiOjE0Nzg2MDUzMTcsIm5iZiI6MTQ3ODYwMTcxNywidmVyIjoiMS4wIiwiaXNzIjoiaHR0cHM6Ly9sb2dpbi5taWNyb3NvZnRvbmxpbmUuY29tLzlhZGM0Zjg5LTgyMGItNDc2YS1iYWI2LTdjZjFkOWI1NGZkNC92Mi4wLyIsInN1YiI6Ik5vdCBzdXBwb3J0ZWQgY3VycmVudGx5LiBVc2Ugb2lkIGNsYWltLiIsImF1ZCI6IjY5OGVmMDNmLWY1ZTUtNGQ1Ni04YzA4LTRjOTE5MGUyMzc2MyIsImFjciI6ImIyY18xX3NpZ25faW5fc2lnbl91cCIsIm5vbmNlIjoiNjM2MTQxOTU4NDM0NzY0OTg4LlpqTTNNbUpsTUdVdE1XWTJOUzAwWkRCaExXSTJaamt0WVRjNE5EVTJOalUzWW1ObE5qZGhOV0psTXpBdE16Tm1OeTAwTTJVd0xUazJNekF0T0RSbE1qZ3lZalExTUdObCIsImlhdCI6MTQ3ODYwMTcxNywiYXV0aF90aW1lIjoxNDc4NjAxNzE3LCJvaWQiOiJjN2U2NjcwZS1mZTAyLTQ5YzMtOThlMC0zNDdmMDIzODk3M2IiLCJlbWFpbHMiOlsibmF2aXN0YXJxYTNAZ21haWwuY29tIl0sIm5ld1VzZXIiOnRydWUsImZhbWlseV9uYW1lIjoiUUEiLCJwb3N0YWxDb2RlIjoiNjk1NTgzIiwiZ2l2ZW5fbmFtZSI6Ik5hdlFBIiwiY291bnRyeSI6IkluZGlhIn0.ZkPpRjLs3Or4WWcAcAa3pWh614yJS2nGgvZ1uqAGaVYsPIQIhC5CntSFzcV0mjdpm2MlOyoNdiz01ltFzBXPIFYmx7Zy1ABNnt-xpO_YpI9hPL5Ag2et1AMLR6KmYXbBNM0dVRnRHY1LfKxzTRg09QewPBkHG8iIYEJ0Wadcwi85MD_4ITbAhPhjfJas8eJVJLLj0GH1XsrT02BoPkR0KbMNtFuGWsAsJNgp4givri0KYMS_CrCBKhXZRCEIXF9m1YuNAySrk_GnAK4uS2iAGRu0QVWxbTdqQ4ejyLZTPDEbPyTZMU6UCY8_0Me-8RDpEYcHyJTP4XiJkuU6kXtSfg</stringProp>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EDL-SaveCarrier" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+&quot;Name&quot;:&quot;Honda&quot;,&#xd;
+&quot;Address&quot;:&quot;Vihar&quot;,&#xd;
+&quot;City&quot;:&quot;Delhi&quot;,&#xd;
+&quot;State&quot;:&quot;UP&quot;,&#xd;
+&quot;Zip&quot;:&quot;485692&quot;, &#xd;
+&quot;PhoneNo&quot;:&quot;56312455&quot;,&#xd;
+&quot;EmailAddress&quot;: &quot;honda@honda.com&quot;,&#xd;
+&quot;DotNumber&quot;: &quot;sdawee43343355&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
-            </HeaderManager>
-            <hashTree/>
-          </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NaviStar-GetMasterData" enabled="false">
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">edl.navistar.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
+            <stringProp name="HTTPSampler.path">/WebApi/UserCarrier/Named/SaveCarrier</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EDL-GetMasterData" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -459,13 +510,13 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">edlservice.azurewebsites.net</stringProp>
+            <stringProp name="HTTPSampler.domain">edl.navistar.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
-            <stringProp name="HTTPSampler.path">/Master/Named/GetMasterData?emailAddress=joseph_wyfipdj_joseph@tfbnw.net&amp;accessToken=5rRc-gB3cx</stringProp>
+            <stringProp name="HTTPSampler.path">/WebApi/Master/Named/GetMasterData</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -475,7 +526,7 @@
             <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NaviStar-SaveVehicleInfo" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="EDL-SaveVehicleInfo" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -486,34 +537,32 @@
     {&#xd;
       &quot;vehicle&quot;: {&#xd;
         &quot;vin&quot;: &quot;VIN_007&quot;,&#xd;
-        &quot;unitNo&quot;: 3,&#xd;
-        &quot;name&quot;: &quot;truck1&quot;,&#xd;
+        &quot;unitNo&quot;: &quot;3&quot;,&#xd;
+        &quot;name&quot;: &quot;name1&quot;,&#xd;
         &quot;make&quot;: &quot;make1&quot;,&#xd;
-        &quot;model&quot;: &quot;testmodel1&quot;,&#xd;
-        &quot;licensePlateNo&quot;: &quot;KL03TR1234&quot;&#xd;
+        &quot;model&quot;: &quot;model1&quot;,&#xd;
+        &quot;licensePlateNo&quot;: &quot;KL03TR8723&quot;&#xd;
       },&#xd;
       &quot;photo&quot;: {&#xd;
         &quot;photoTypeId&quot;: 1,&#xd;
-        &quot;noteTypeId&quot;: 1,&#xd;
         &quot;photoString&quot;: &quot;photostring1&quot;&#xd;
       },&#xd;
       &quot;eld&quot;: {&#xd;
         &quot;ssId&quot;: &quot;ssid1&quot;,&#xd;
-        &quot;password&quot;: &quot;password1&quot;&#xd;
+       &quot;password&quot;: &quot;pwd1&quot;&#xd;
       }&#xd;
     },&#xd;
     {&#xd;
       &quot;vehicle&quot;: {&#xd;
         &quot;vin&quot;: &quot;VIN_008&quot;,&#xd;
-        &quot;unitNo&quot;: 3,&#xd;
-        &quot;name&quot;: &quot;truck2&quot;,&#xd;
+        &quot;unitNo&quot;: &quot;3&quot;,&#xd;
+        &quot;name&quot;: &quot;name2&quot;,&#xd;
         &quot;make&quot;: &quot;make2&quot;,&#xd;
-        &quot;model&quot;: &quot;testmodel2&quot;,&#xd;
-        &quot;licensePlateNo&quot;: &quot;KL01AE5678&quot;&#xd;
+        &quot;model&quot;: &quot;model2&quot;,&#xd;
+        &quot;licensePlateNo&quot;: &quot;KL01AE1265&quot;&#xd;
       },&#xd;
       &quot;photo&quot;: {&#xd;
-        &quot;photoTypeId&quot;: 1,&#xd;
-        &quot;noteTypeId&quot;: 1,&#xd;
+       &quot;photoTypeId&quot;: 1,&#xd;
         &quot;photoString&quot;: &quot;photostring2&quot;&#xd;
       },&#xd;
       &quot;eld&quot;: {&#xd;
@@ -522,50 +571,18 @@
       }&#xd;
     }&#xd;
   ]&#xd;
-}&#xd;
-</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">edlservice.azurewebsites.net</stringProp>
-            <stringProp name="HTTPSampler.port">443</stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="HTTPSampler.protocol">https</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
-            <stringProp name="HTTPSampler.path">/vehicles/Named/SaveList?emailAddress=joseph_wyfipdj_joseph@tfbnw.net&amp;accessToken=5rRc-gB3cx</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <boolProp name="HTTPSampler.monitor">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="NaviStar-SaveUserInfo" enabled="false">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">{&#xd;
-&quot;password&quot;:&quot;&quot;,&#xd;
-&quot;firstName&quot;:&quot;Joseph&quot;,&#xd;
-&quot;lastName&quot;:&quot;Davis&quot;,&#xd;
 }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">edlservice.azurewebsites.net</stringProp>
+            <stringProp name="HTTPSampler.domain">edl.navistar.com</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">iso-8859-1</stringProp>
-            <stringProp name="HTTPSampler.path">/users/Named/SaveUserInfo?emailAddress=joseph_wyfipdj_joseph@tfbnw.net&amp;accessToken=5rRc-gB3cx </stringProp>
+            <stringProp name="HTTPSampler.path">/WebApi/vehicles/Named/SaveVehicleInfo</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -682,7 +699,7 @@
               <bytes>true</bytes>
             </value>
           </objProp>
-          <stringProp name="filename">D:\Netapp\JmeterTestResult\ActiveThreadResponseTime223.csv</stringProp>
+          <stringProp name="filename">D:\Project\navistar\JmeterTestResult\ActiveThreadResponseTime223.csv</stringProp>
           <longProp name="interval_grouping">500</longProp>
           <boolProp name="graph_aggregated">false</boolProp>
           <stringProp name="include_sample_labels"></stringProp>
@@ -765,9 +782,9 @@
           <stringProp name="filename">D:\Netapp\JmeterTestResult\SummaryReport223.csv</stringProp>
         </ResultCollector>
         <hashTree/>
-        <Summariser guiclass="SummariserGui" testclass="Summariser" testname="Generate Summary Results" enabled="false"/>
+        <Summariser guiclass="SummariserGui" testclass="Summariser" testname="Generate Summary Results" enabled="true"/>
         <hashTree/>
-        <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="false">
+        <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
